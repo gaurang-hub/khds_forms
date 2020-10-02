@@ -14,7 +14,7 @@ class RegisterationForm(FlaskForm):
 	email = StringField('Email', validators=[DataRequired(), Email()])
 	password = PasswordField('Password', validators=[DataRequired()])
 	confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
-	submit = SubmitField('Sign Up')
+	submit = SubmitField('Sign Up As New User')
 
 	def validate_username(self, username):
 		user = User.query.filter_by(username=username.data).first()
@@ -41,4 +41,4 @@ class ConsentForm(FlaskForm):
 	flat = StringField('Flat No.', validators=[DataRequired()])
 	email = StringField('Email', validators=[DataRequired(), Email()])
 	zoom_meeting = StringField('Should the GBM and Election of New Management Committee held over a Zoom Conferencing ?', validators=[DataRequired()])
-	submit = SubmitField('Submit')
+	submit = SubmitField('Enter or Submit')
